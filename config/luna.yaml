@@ -1,0 +1,92 @@
+global_settings:
+  install_path: C:\Windows\MoonMon\ # Absolute path to the desired installation directory (will be created)
+  install_source_path: C:\Windows\Temp\MoonMon\ # Absolute path to a local or UNC path to the install directory, won't be used if http(s) installation is used
+  service_name: "MM"
+  service_display_name: "MoonMon Driver"
+  agent_service_name: "Luna"
+  agent_service_display_name: "MoonMon"
+  file_output: C:\Windows\MoonMon\events.log # JSON log output
+  file_output_rotate_size: 200000000 # Log file size in bytes that will trigger rotation
+  file_output_rotate_count: 5 # Number of log files to retain after rotation
+  keep_excludes: false # When true, it will process but won't drop excluded events (for debugging)
+  resist_tampering: true # turn on various tamper-resistance features
+  # The rest of these settings turn on/off blocking and logging capabilities
+  # For different event sources
+  process_monitoring: true
+  thread_monitoring: true
+  module_monitoring: true
+  object_monitoring: true
+  registry_monitoring: true
+  file_monitoring: true
+  network_monitoring: true
+
+# the lists below should be removed when installing
+# it is here merely as example/starter list.
+process_block_list: 
+    entries: 
+      - id: 100
+        name: tasklist block
+        action: accessdenied
+        rules: 
+          - condition: contains
+            field: image_file_name
+            value: tasklist.exe
+          - condition: endswith
+            field: image_file_name
+            value: exe
+      - id: 200
+        name: powershell block
+        action: notfound
+        rules: 
+          - condition: contains
+            field: image_file_name
+            value: netstat.exe
+          - condition: notstartswith
+            field: current_working_directory
+            value: c:\windows\system32
+          - condition: contains
+            field: parent_command_line
+            value: powershell
+      - id: 300
+        name: pwsh block
+        action: accessdenied
+        rules: 
+          - condition: contains
+            field: image_file_name
+            value: pwsh.exe
+          - condition: startswith
+            field: command_line
+            value: e:\ 
+      - id: 400
+        name: defender block
+        action: accessdenied
+        rules: 
+          - condition: contains
+            field: image_file_name
+            value: msmpeng
+      - id: 401
+        name: defender block
+        action: accessdenied
+        rules: 
+          - condition: contains
+            field: image_file_name
+            value: Windows Defender            
+      - id: 500
+        name: msedge block
+        action: accessdenied
+        rules: 
+          - condition: contains
+            field: image_file_name
+            value: msedge                        
+
+# blocks file create (open) for any path 
+# that contains 'Windows Defender'
+file_create_block_list:
+    entries:
+      - id: 9998000
+        name: Defender files
+        action: notfound
+        rules:
+          - condition: contains
+            field: file_name
+            value: Windows Defender

@@ -1,0 +1,62 @@
+;
+; MoonMon.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System 
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %ManufacturerName%
+CatalogFile = MoonMon.cat
+DriverVer   = 0.1; TODO: set DriverVer in stampinf property pages
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+MoonMon.sys = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NT$ARCH$.10.0...16299 ; %13% support introduced in build 16299
+
+[Standard.NT$ARCH$.10.0...16299]
+%MoonMon.DeviceDesc% = MoonMon_Device, Root\MoonMon
+
+[MoonMon_Device.NT]
+CopyFiles = File_Copy
+
+[File_Copy]
+MoonMon.sys
+
+;-------------- Service installation
+[MoonMon_Device.NT.Services]
+AddService = MoonMon,%SPSVCINST_ASSOCSERVICE%, MoonMon_Service_Inst
+
+; -------------- MoonMon driver install sections
+[MoonMon_Service_Inst]
+DisplayName    = %MoonMon.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\MoonMon.sys
+
+[MoonMon_Device.NT.Wdf]
+KmdfService = MoonMon, MoonMon_wdfsect
+
+[MoonMon_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName = "ag-michael"
+DiskName = "MoonMon Installation Disk"
+MoonMon.DeviceDesc = "MoonMon"
+MoonMon.SVCDESC = "MoonMon"

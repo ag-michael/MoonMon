@@ -1,0 +1,9 @@
+process_block_list: 
+  entries: 
+    - id: 500
+      name: msedge block
+      action: notfound
+      rules: 
+        - condition: contains
+          field: image_file_name
+          value: msedge    

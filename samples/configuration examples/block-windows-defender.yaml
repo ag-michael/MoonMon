@@ -1,0 +1,21 @@
+# blocks file create (open) for any path 
+# that contains 'Windows Defender'
+file_create_block_list:
+    entries:
+      - id: 9998000
+        name: Defender files
+        action: notfound
+        rules:
+          - condition: contains
+            field: file_name
+            value: Windows Defender
+# Prevent the malware protection engine from running
+process_block_list: 
+    entries: 
+      - id: 401
+        name: defender block
+        action: accessdenied
+        rules: 
+          - condition: contains
+            field: image_file_name
+            value: Windows Defender   
