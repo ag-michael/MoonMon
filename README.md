@@ -6,8 +6,7 @@ MoonMon is an endpoint monitoring and policy enforcement tool for Microsoft Wind
 
 MoonMon is intended to be an endpoint security tool that enables rule-centric detailed monitoring and restrictions on a Windows system.
 
-MoonMon is inspired by tools like Sysmon and SeLinux, it is however not meant to have a one-to-one feature overlap with those tools.
-It focuses on exposing as much telemetry as possible to its user while at the same time allowing lots of configuration and fine-tuning to fit its intended deployment's use-case. 
+MoonMon is inspired by tools like Sysmon and Linux kernel security modules. It focuses on exposing as much telemetry as possible to its user while at the same time allowing lots of configuration and fine-tuning to fit its intended deployment's use-case. 
 
 MoonMon also exposes preventive capabilities, allowing users to restrict what operations are allowed or not allowed on their device using the same telemetry information that it collects for monitoring. 
 
