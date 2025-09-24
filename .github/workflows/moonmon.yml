@@ -1,0 +1,25 @@
+name: Build Windows Driver
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    
+    
+jobs:
+  build:
+    runs-on: windows-latest # Or a specific Windows Server image if needed
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.1 # Or use a specific Visual Studio setup action
+
+    - name: Build Driver Solution
+      run: msbuild MoonMon.sln /p:Configuration=Debug /p:Platform=x64 # Adjust path and configuration as needed
