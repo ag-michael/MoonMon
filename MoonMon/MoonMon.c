@@ -31,7 +31,7 @@ callback(params) {
 }
 
 For debug builds, most exceptions are not handled so that a bug check could be generated. 
-Asserts will be used sparingly but they shouldn't make into debug builds. KdPrint's are used liberally because they won't make into a release build.
+Asserts will be used sparingly but they shouldn't make into release builds. KdPrint's are used liberally because they won't make into a release build.
 
 Callbacks will use GetCachedProcess() to get cached information about a process without actively probing for it and add that detail to their logging.
 
@@ -205,7 +205,7 @@ void ProcessNotifyCallbackRoutine(_In_ PEPROCESS pProcess, _In_ HANDLE hPid, _In
                         // LONGLONG idauth = 0;
                         SidLookup(globals, PsGetCurrentThread(), targp, UI);
                         if (MM_TYPE_CHECK(UI, MNEME) && UI->sid_data != NULL) {
-                            /* // SID user name and domain lookup works fine..excep at boot
+                            /* // SID user name and domain lookup works fine..except at boot
                             *  // Keeping around the code for it for now, but this will be done by the 
                             * // user-space agent going forward.
                             for (int j = 0; j < 6; j++) {
