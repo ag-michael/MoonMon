@@ -44,10 +44,10 @@ The table below lists features that are currently supported,implemented, planned
 | Process Access blocking | :100: | Unit tests passing, but it needs more extensive testing |
 | Registry event logging | :warning: | All planned registry events implemented, but with limited unit tests; various registry event types haven't been tested at all |
 | Registry event blocking | :warning: | All planned registry events implemented, but with limited unit tests; various registry event types haven't been tested at all  |
-| File create logging | :heavy_check_mark: | This includes File open and create events. Works and basic tests passing, but it needs more extensive testing |
-| File create blocking | :100: |  This includes File open and create events. Works and basic tests passing, but it needs more extensive testing |
-| File set information logging | :warning: | This includes file deletion, renaming, timestamp updates and much more. Works and basic tests passing, but it needs more extensive testing |
-| File set information blocking | :warning: | This includes file deletion, renaming, timestamp updates and much more. Works and basic tests passing, but it needs more extensive testing |
+| File create logging | :heavy_check_mark: | This includes File open and create events. Works as expected and basic tests are passing, but it needs more extensive testing |
+| File create blocking | :100: |  This includes File open and create events.Works as expected and basic tests are passing, but it needs more extensive testing |
+| File set information logging | :warning: | This includes file deletion, renaming, timestamp updates and much more. Works as expected and basic tests are passing, but it needs more extensive testing |
+| File set information blocking | :warning: | This includes file deletion, renaming, timestamp updates and much more. Works as expected and basic tests are passing, but it needs more extensive testing |
 | Network/WFP IPV4 logging | :100: | Needs more extensive testing |
 | Network/WFP IPV6 logging | :100: | Needs more extensive testing |
 | Network/WFP resource assignment logging | :warning: | Untested |
@@ -58,8 +58,9 @@ The table below lists features that are currently supported,implemented, planned
 | PE header enrichment | :x: | User-space/agent |
 | File magic enrichment | :x: | User-space/agent |
 | KAPC injection rules | :x: | Rules that will inject specific code into specific processes |
-| Yara scanning | :bulb: | Rules that will will define which Yara rules should be used to scan which files or process memory (user-space obviously) |
+| Yara scanning | :bulb: | Rules that will define which Yara rules should be used to scan which files or process memory (user-space) |
 | Safe & Dynamic reloading | :x: | |
+| Configuration fallback/revert | :x: | Last known good configuration fallback when health-checks fail |
 | Configuration signature enforcement | :bulb: | |
 | AMSI scanning | :bulb: | |
 | ETW logging | :bulb: | |
