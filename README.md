@@ -77,7 +77,7 @@ The table below lists features that are currently supported,implemented, planned
     - [x] Basic event logging
     - [x] File output and log rotation
     - [x] Basic unit-tests written and passing
-    - [ ] Complete docs for supported features
+    - [X] Complete docs for supported features
     - [ ] Passing unit tests on different Windows 11 installation environments
     - [ ] Decent sample config catalog
     - [ ] :grey_exclamation: Independent security reviews? (:eyes: Help Needed)
