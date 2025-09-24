@@ -89,6 +89,10 @@ func parseIpv6(subnet string) []byte {
 	if err != nil {
 		log.Printf("Bad IPV6 subnet value:%v\n", subnet)
 	}
+	if _prefix < 1 || _prefix > 128 {
+		log.Printf("Bad IPV6 prefix value:%d\n", _prefix)
+		return nil
+	}
 	prefix := uint8(_prefix)
 	ip := strings.Split(subnet, "/")[0]
 
@@ -359,7 +363,12 @@ func StringToMessage(field int, data string) []byte {
 				fmt.Printf("Warning: byte field parsing error for '%v', field %v\n", data, Fields[field])
 			} else {
 				message = make([]byte, 2)
-				message[0] = byte(intval)
+				if intval > 2 {
+					fmt.Printf("Warning: Invalid MM_NET_PROMISCUOUS value:%d\n", intval)
+					message = nil
+				} else {
+					message[0] = byte(intval)
+				}
 			}
 		}
 		// 16 bit fields, decimal string

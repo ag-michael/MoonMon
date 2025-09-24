@@ -101,7 +101,10 @@ func Unzip(src string, dest string) error {
 
 	for _, f := range r.File {
 		fpath := filepath.Join(dest, f.Name)
-
+		if !strings.HasPrefix(fpath, filepath.Clean(dest)+string(os.PathSeparator)) {
+			log.Printf("Unzip: Illegal file path in zip: %s", f.Name)
+			continue
+		}
 		if f.FileInfo().IsDir() {
 			os.MkdirAll(fpath, os.ModePerm)
 			continue
