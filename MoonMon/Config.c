@@ -155,137 +155,141 @@ CONFIG_GROUP** resolveList(_In_ PGC G, UINT16 listType, PULONG* c, PULONG list_m
 Allocates memory for all supported config lists.
 */
 NTSTATUS initConfigLists(_In_ PGC G) {
+    /*
+    I would want to simplify this a lot and use a loop to initialize all these.
+    Gave it a shot and it introduced bugs, since this approach works really well, leaving it this way for now.
+    */
+    G->PBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * PBL_ENTRIES_MAX, MAGIC);
+    if (G->PBL == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->PBL, sizeof(CONFIG_GROUP*) * PBL_ENTRIES_MAX);
+    G->PINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * PINC_ENTRIES_MAX, MAGIC);
+    if (G->PINC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->PINC, sizeof(CONFIG_GROUP*) * PINC_ENTRIES_MAX);
+    G->PEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * PEXC_ENTRIES_MAX, MAGIC);
+    if (G->PEXC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->PEXC, sizeof(CONFIG_GROUP*) * PEXC_ENTRIES_MAX);
+    G->PTINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * PTINC_ENTRIES_MAX, MAGIC);
+    if (G->PTINC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->PTINC, sizeof(CONFIG_GROUP*) * PTINC_ENTRIES_MAX);
+    G->PTEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * PTEXC_ENTRIES_MAX, MAGIC);
+    if (G->PTEXC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->PTEXC, sizeof(CONFIG_GROUP*) * PTEXC_ENTRIES_MAX);
+    G->TBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * TBL_ENTRIES_MAX, MAGIC);
+    if (G->TBL == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->TBL, sizeof(CONFIG_GROUP*) * TBL_ENTRIES_MAX);
+    G->TINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * TINC_ENTRIES_MAX, MAGIC);
+    if (G->TINC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->TINC, sizeof(CONFIG_GROUP*) * TINC_ENTRIES_MAX);
+    G->TEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * TEXC_ENTRIES_MAX, MAGIC);
+    if (G->TEXC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->TEXC, sizeof(CONFIG_GROUP*) * TEXC_ENTRIES_MAX);
+    G->MBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * MBL_ENTRIES_MAX, MAGIC);
+    if (G->MBL == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->MBL, sizeof(CONFIG_GROUP*) * MBL_ENTRIES_MAX);
+    G->MINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * MINC_ENTRIES_MAX, MAGIC);
+    if (G->MINC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->MINC, sizeof(CONFIG_GROUP*) * MINC_ENTRIES_MAX);
+    G->MEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * MEXC_ENTRIES_MAX, MAGIC);
+    if (G->MEXC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->MEXC, sizeof(CONFIG_GROUP*) * MEXC_ENTRIES_MAX);
+    G->OBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * OBL_ENTRIES_MAX, MAGIC);
+    if (G->OBL == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->OBL, sizeof(CONFIG_GROUP*) * OBL_ENTRIES_MAX);
+    G->OINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * OINC_ENTRIES_MAX, MAGIC);
+    if (G->OINC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->OINC, sizeof(CONFIG_GROUP*) * OINC_ENTRIES_MAX);
+    G->OEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * OEXC_ENTRIES_MAX, MAGIC);
+    if (G->OEXC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->OEXC, sizeof(CONFIG_GROUP*) * OEXC_ENTRIES_MAX);
+    G->RBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * RBL_ENTRIES_MAX, MAGIC);
+    if (G->RBL == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->RBL, sizeof(CONFIG_GROUP*) * RBL_ENTRIES_MAX);
+    G->RINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * RINC_ENTRIES_MAX, MAGIC);
+    if (G->RINC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->RINC, sizeof(CONFIG_GROUP*) * RINC_ENTRIES_MAX);
+    G->REXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * REXC_ENTRIES_MAX, MAGIC);
+    if (G->REXC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->REXC, sizeof(CONFIG_GROUP*) * REXC_ENTRIES_MAX);
+    G->FCBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * FCBL_ENTRIES_MAX, MAGIC);
+    if (G->FCBL == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->FCBL, sizeof(CONFIG_GROUP*) * FCBL_ENTRIES_MAX);
+    G->FCINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * FCINC_ENTRIES_MAX, MAGIC);
+    if (G->FCINC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->FCINC, sizeof(CONFIG_GROUP*) * FCINC_ENTRIES_MAX);
+    G->FCEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * FCEXC_ENTRIES_MAX, MAGIC);
+    if (G->FCEXC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->FCEXC, sizeof(CONFIG_GROUP*) * FCEXC_ENTRIES_MAX);
+    G->FSBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * FSBL_ENTRIES_MAX, MAGIC);
+    if (G->FSBL == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->FSBL, sizeof(CONFIG_GROUP*) * FSBL_ENTRIES_MAX);
+    G->FSINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * FSINC_ENTRIES_MAX, MAGIC);
+    if (G->FSINC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->FSINC, sizeof(CONFIG_GROUP*) * FSINC_ENTRIES_MAX);
+    G->FSEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * FSEXC_ENTRIES_MAX, MAGIC);
+    if (G->FSEXC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->FSEXC, sizeof(CONFIG_GROUP*) * FSEXC_ENTRIES_MAX);
+    G->WBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * WBL_ENTRIES_MAX, MAGIC);
+    if (G->WBL == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->WBL, sizeof(CONFIG_GROUP*) * WBL_ENTRIES_MAX);
+    G->WINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * WINC_ENTRIES_MAX, MAGIC);
+    if (G->WINC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->WINC, sizeof(CONFIG_GROUP*) * WINC_ENTRIES_MAX);
 
-        G->PBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * PBL_ENTRIES_MAX, MAGIC);
-        if(G->PBL == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->PINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * PINC_ENTRIES_MAX, MAGIC);
-        if(G->PINC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->PEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * PEXC_ENTRIES_MAX, MAGIC);
-        if(G->PEXC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->PTINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * PTINC_ENTRIES_MAX, MAGIC);
-        if(G->PTINC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->PTEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * PTEXC_ENTRIES_MAX, MAGIC);
-        if(G->PTEXC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->TBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * TBL_ENTRIES_MAX, MAGIC);
-        if(G->TBL == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->TINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * TINC_ENTRIES_MAX, MAGIC);
-        if(G->TINC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->TEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * TEXC_ENTRIES_MAX, MAGIC);
-        if(G->TEXC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->MBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * MBL_ENTRIES_MAX, MAGIC);
-        if(G->MBL == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->MINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * MINC_ENTRIES_MAX, MAGIC);
-        if(G->MINC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->MEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * MEXC_ENTRIES_MAX, MAGIC);
-        if(G->MEXC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->OBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * OBL_ENTRIES_MAX, MAGIC);
-        if(G->OBL == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->OINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * OINC_ENTRIES_MAX, MAGIC);
-        if(G->OINC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->OEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * OEXC_ENTRIES_MAX, MAGIC);
-        if(G->OEXC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->RBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * RBL_ENTRIES_MAX, MAGIC);
-        if(G->RBL == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->RINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * RINC_ENTRIES_MAX, MAGIC);
-        if(G->RINC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->REXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * REXC_ENTRIES_MAX, MAGIC);
-        if(G->REXC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->FCBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * FCBL_ENTRIES_MAX, MAGIC);
-        if(G->FCBL == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->FCINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * FCINC_ENTRIES_MAX, MAGIC);
-        if(G->FCINC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->FCEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * FCEXC_ENTRIES_MAX, MAGIC);
-        if(G->FCEXC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->FSBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * FSBL_ENTRIES_MAX, MAGIC);
-        if(G->FSBL == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->FSINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * FSINC_ENTRIES_MAX, MAGIC);
-        if(G->FSINC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->FSEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * FSEXC_ENTRIES_MAX, MAGIC);
-        if(G->FSEXC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->WBL = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * WBL_ENTRIES_MAX, MAGIC);
-        if(G->WBL == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->WINC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * WINC_ENTRIES_MAX, MAGIC);
-        if(G->WINC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-                        
-            G->WEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * WEXC_ENTRIES_MAX, MAGIC);
-        if(G->WEXC == NULL){
-            return STATUS_NO_MEMORY;
-            }
-        
+    G->WEXC = ExAllocatePool2(POOL_FLAG_NON_PAGED, sizeof(CONFIG_GROUP*) * WEXC_ENTRIES_MAX, MAGIC);
+    if (G->WEXC == NULL) {
+        return STATUS_NO_MEMORY;
+    }
+    RtlZeroMemory(G->WEXC, sizeof(CONFIG_GROUP*) * WEXC_ENTRIES_MAX);
     
    
     return STATUS_SUCCESS;
@@ -309,6 +313,7 @@ NTSTATUS purgeConfigList(_In_ PGC G,_In_ UINT16 listType) {
     ULONG i = 0, j = 0;
 
     for (i; i < c && i<list_max; i++) {
+        if (List[i] == NULL) break;
         if (!MM_TYPE_CHECK(List[i],CALIBAN)) {
             continue;
         }
@@ -936,7 +941,7 @@ MM_ASSERT(G,GANYMEDE);
                 else if (!NT_SUCCESS(status)) {
                     KdPrint(("ZwQueryValueKey (size) failed (0x%08X)\n", status));
                     index++;
-                    ExFreePoolWithTag(valueName, IO);
+                  //  ExFreePoolWithTag(valueName, IO);
                     goto LOOP_END;
                     //return status;
                 }

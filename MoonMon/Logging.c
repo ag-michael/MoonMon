@@ -40,7 +40,6 @@ If the list is full, it attempts to non-deterministically purge oldest entries.
 There is unfortunaley no good way around this data-loss event which can happen when the system is 
 running low on resources and the user-space client isn't keeping up with the volume of logs being generated.
 */
-_IRQL_raises_(APC_LEVEL)
 void AddLogEntry(_In_ PGC G, _In_ LONG64 id, _In_ LONGLONG Timestamp, _In_ ULONG size, _In_ USHORT type, _In_ PVOID Data) {
     
     try {
