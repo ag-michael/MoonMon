@@ -87,9 +87,9 @@ The table below lists features that are currently supported,implemented, planned
   - [ ] Performance benchmarking and tuning
   - [ ] Remote binary logging with mTLS
   - [ ] Yara scanning rules
-  - [ ] Hash measurement
+  - [X] Hash measurement
   - [ ] KAPC injection rules
-  - [ ] PE header enrichment
+  - [X] PE header enrichment
   - [ ] DNS logging
   - [ ] Explore and support additional WFP layers
   - [ ] Module blocking
