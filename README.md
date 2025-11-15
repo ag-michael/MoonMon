@@ -53,9 +53,9 @@ The table below lists features that are currently supported,implemented, planned
 | Network/WFP resource assignment logging | :warning: | Untested |
 | Network/WFP DNS cache logging | :x: | |
 | Tamper resistance | :warning: | Some user-space agent protections against process termination exist. Overall incomplete. Registry and file tampering resistance does not yet exist. |
-| Hash measurement | :x: | This is rather simple, but doing it without crashing the systems' performance requires careful planning - all from user-space |
+| Hash measurement | :100: | This is done for module loading, performance impact needs improvement |
 | Hash blocking | :x: | This will likely be for process creation and module loading, but it will be asynchronous (terminate after the fact) |
-| PE header enrichment | :x: | User-space/agent |
+| PE header enrichment | :100: | This is done for module loading, performance impact needs improvement |
 | File magic enrichment | :x: | User-space/agent |
 | KAPC injection rules | :x: | Rules that will inject specific code into specific processes |
 | Yara scanning | :bulb: | Rules that will define which Yara rules should be used to scan which files or process memory (user-space) |
