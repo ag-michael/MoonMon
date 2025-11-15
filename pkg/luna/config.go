@@ -45,6 +45,8 @@ type Config struct {
 		File_Rotate_Count      uint   `yaml:"file_output_rotate_count"`
 		Keep_Excludes          bool   `yaml:"keep_excludes"`
 		Resist_Tampering       bool   `yaml:"resist_tampering"`
+		EnrichPE               bool   `yaml:"enrich_pe"`
+		MeasureSHA256          bool   `yaml:"measure_sha256"`
 		Process_Callback       bool   `yaml:"process_monitoring"`
 		Thread_Callback        bool   `yaml:"thread_monitoring"`
 		Module_Callback        bool   `yaml:"module_monitoring"`
@@ -219,6 +221,18 @@ func processGlobalSettings(C Config) {
 	Settings["AGENT_DISPLAY_NAME"] = G.Agent_svc_display_name
 	Settings["CONFIG_PATH"] = G.Install_path + "\\Config"
 	Settings["FILE_OUTPUT"] = G.File_Out
+
+	if G.EnrichPE {
+		Settings["PE"] = "1"
+	} else {
+		Settings["PE"] = "0"
+	}
+
+	if G.MeasureSHA256 {
+		Settings["SHA256"] = "1"
+	} else {
+		Settings["SHA256"] = "0"
+	}
 	ROTATE_SIZE = G.File_Rotate_Size
 	ROTATE_COUNT = G.File_Rotate_Count
 	hkey, err := wr.OpenKey(wr.LOCAL_MACHINE, Settings["SVC_REGISTRY_SETTINGS"], wr.ALL_ACCESS)

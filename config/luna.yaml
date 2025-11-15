@@ -8,7 +8,7 @@ global_settings:
   file_output: C:\Windows\MoonMon\events.log # JSON log output
   file_output_rotate_size: 200000000 # Log file size in bytes that will trigger rotation
   file_output_rotate_count: 5 # Number of log files to retain after rotation
-  keep_excludes: false # When true, it will process but won't drop excluded events (for debugging)
+  keep_excludes: true # When true, it will process but won't drop excluded events (for debugging)
   resist_tampering: true # turn on various tamper-resistance features
   # The rest of these settings turn on/off blocking and logging capabilities
   # For different event sources
@@ -19,6 +19,8 @@ global_settings:
   registry_monitoring: true
   file_monitoring: true
   network_monitoring: true
+  measure_sha256: true
+  enrich_pe: true
 
 # the lists below should be removed when installing
 # it is here merely as example/starter list.

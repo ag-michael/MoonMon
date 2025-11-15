@@ -104,6 +104,13 @@ func processData(data []byte, bytesSize uint32) {
 			message["ACCOUNT_DOMAIN"] = domain
 		}
 
+		// Attempt PE Enrichment for loaded modules
+		if luna.Settings["SHA256"] == "1" && dtype == uint16(luna.LOADED_MODULE) && len(message_value) > 0 {
+			message["SHA256"] = luna.SHA256(message_value)
+		}
+		if luna.Settings["PE"] == "1" && dtype == uint16(luna.LOADED_MODULE) && len(message_value) > 0 {
+			message["PE"] = luna.PEEnrich(message_value)
+		}
 		if int(dtype) == luna.EVENT_END {
 			// if this is a an event_end entry, then
 			// find all events associated with the event id
@@ -153,7 +160,7 @@ func processData(data []byte, bytesSize uint32) {
 // that reads log data from the driver and calls processData() to process it.
 func Luna() {
 	// This is a hard-coded device name for now
-	// TOOD: Dynamically discover the device name using the service name
+	// TODO: Dynamically discover the device name using the service name
 	fileName := `\Device\MoonMon`
 
 	var hDriver w.Handle

@@ -623,7 +623,7 @@ NTSTATUS InspectProcessCreation(_In_ PGC globals, _In_ PPROC_INFO PI, _Out_ PBOO
 		}
 	}
 	// Check the exclude list but only if the include list check didn't match
-	if (*skip_logging == FALSE && globals->PEXC_COUNT > 0) {
+	else if (*skip_logging == FALSE && globals->PEXC_COUNT > 0) {
 		if (ProcessListMatch(globals, PI, PROCESS_EXCLUDE_LIST, globals->PEXC_COUNT, &id, &actions) == TRUE) {
 			*skip_logging = TRUE;
 			*match_id = id;
@@ -656,7 +656,7 @@ void InspectProcessTermination(_In_ PGC globals, _In_ PPROC_INFO PI, _Out_ PBOOL
 		}
 		
 	}
-	if (*skip_logging == FALSE && globals->PTEXC_COUNT > 0) {
+	else if (*skip_logging == FALSE && globals->PTEXC_COUNT > 0) {
 		if (ProcessListMatch(globals, PI, PROCESS_TERMINATED_EXCLUDE_LIST, globals->PTEXC_COUNT, &id, &actions) == TRUE) {
 			*skip_logging = TRUE;
 			*match_id = id;

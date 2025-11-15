@@ -159,7 +159,7 @@ void InspectThreadCreation(_In_ PGC globals, _In_ PTC_INFO TI, _Out_ PBOOLEAN sk
 		}
 		
 	}
-	if (*skip_logging == FALSE && globals->PTEXC_COUNT > 0) {
+	else if (*skip_logging == FALSE && globals->PTEXC_COUNT > 0) {
 		if (ThreadCreationListMatch(globals, TI, THREAD_EXCLUDE_LIST, globals->PTEXC_COUNT, &id, &actions) == TRUE) {
 			*skip_logging = TRUE;
 			*match_id = id;

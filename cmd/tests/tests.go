@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 
 	luna "github.com/ag-michael/MoonMon/pkg/luna"
@@ -83,7 +84,11 @@ func LoadTestSettings(config string) {
 		log.Fatalf("LoadTestSettings:Specified config file does not end in .yaml\n")
 	}
 	var installConf luna.Config
-	content, err := os.ReadFile(config)
+	config_path, err := filepath.Abs(config)
+	if err != nil {
+		log.Fatalf("Error resolving the absolute path for %s:%v", config, err)
+	}
+	content, err := os.ReadFile(config_path)
 	if err != nil {
 		log.Fatalf("Error reading file: %v", err)
 	}
@@ -113,7 +118,7 @@ func LoadTestSettings(config string) {
 	}
 
 	luna.Settings["POST_REBOOT"] = "FALSE"
-	err = nil
+
 	_, err = os.Stat(luna.Settings["REBOOT_TEST_PATH"])
 	if err == nil {
 		luna.Settings["POST_REBOOT"] = "TRUE"

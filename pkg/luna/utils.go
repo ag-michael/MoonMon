@@ -20,7 +20,7 @@ import (
 
 // converts a windows utf16 string to a golang utf8 string
 func ToUTF8(indata []byte) string {
-	transformed := []byte("<utf8 decoding failure>")
+	var transformed []byte
 	decoder := unicode.UTF16(unicode.LittleEndian, unicode.UseBOM).NewDecoder()
 	transformed, _, err := transform.Bytes(decoder, indata)
 	if err != nil {
@@ -91,7 +91,7 @@ func DownloadFile(url string, path string) bool {
 	return false
 }
 
-// Unzips the src source zip file under the dest destinatin directory
+// Unzips the src source zip file under the dest destination directory
 func Unzip(src string, dest string) error {
 	r, err := zip.OpenReader(src)
 	if err != nil {

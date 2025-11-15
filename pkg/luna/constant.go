@@ -797,7 +797,7 @@ var FieldInformation = []FieldInfo{
 	{Name: "NAMED_PIPE_END", FieldType: "hex-uint32", ValidRanges: []string{"0x0", "0x1"}, DefaultValue: "0x0", Description: "See: https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/ns-ntifs-_file_pipe_local_information"},
 	{Name: "FILE_DELETION", FieldType: "string", ValidRanges: []string{"unsupported", "true", "false"}, DefaultValue: "true", Description: "Indicates a file was deleted"},
 	{Name: "NET_DIRECTION", FieldType: "decimal-byte", ValidRanges: []string{"0", "1"}, DefaultValue: "0x1", Description: "Direction of network traffic"},
-	{Name: "NET_IP_PROTOCOL", FieldType: "decimal-byte", ValidRanges: []string{"byte"}, DefaultValue: "17", Description: "The IP network protocl value for the traffiic."},
+	{Name: "NET_IP_PROTOCOL", FieldType: "decimal-byte", ValidRanges: []string{"byte"}, DefaultValue: "17", Description: "The IP network protocol value for the traffiic."},
 	{Name: "NET_ADDRESS_TYPE", FieldType: "decimal-byte", ValidRanges: []string{"0", "1", "2", "3", "4", "5"}, DefaultValue: "0x1", Description: "The network address type, such as unicast,broadcast and anycast. See: https://learn.microsoft.com/en-us/windows/win32/api/nldef/ne-nldef-nl_address_type"},
 	{Name: "NET_PROMISCUOUS", FieldType: "decimal-byte", ValidRanges: []string{"0", "1"}, DefaultValue: "0x1", Description: "Indicates the network resource assigned permits promiscuous access."},
 	{Name: "NET_LOCAL_PORT", FieldType: "uint16", ValidRanges: []string{"uint16"}, DefaultValue: "80", Description: "Transport layer local port."},

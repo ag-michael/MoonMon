@@ -59,7 +59,7 @@ func ServiceSetupMoonMon(start bool) {
 			log.Printf("err:%v,%v: %v\n", Settings["SVC_NAME"], Settings["AGENT_SVC_PATH"], err)
 			return
 		}
-		// service created succesfully
+		// service created successfully
 		// Unfortunately, the svc library doesn't honor the SERVICE_BOOT_START starttype value
 		// so, this is a temporary hack until the github issue is resolved
 		// https://github.com/golang/go/issues/74768

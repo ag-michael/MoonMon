@@ -139,7 +139,7 @@ void InspectImageloadEvent(_In_ PGC globals, _In_ PMODULE_INFO MI, _Out_ PBOOLEA
 		}
 		
 	}
-	if (*skip_logging == FALSE && globals->MEXC_COUNT > 0) {
+	else if (*skip_logging == FALSE && globals->MEXC_COUNT > 0) {
 		if (ModuleLoadListMatch(globals, MI, MODULE_EXCLUDE_LIST, globals->MEXC_COUNT, &id, &actions) == TRUE) {
 			*skip_logging = TRUE;
 			*match_id = id;
