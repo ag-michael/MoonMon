@@ -10,7 +10,7 @@ MoonMon is inspired by tools like Sysmon and Linux kernel security modules. It f
 
 MoonMon also exposes preventive capabilities, allowing users to restrict what operations are allowed or not allowed on their device using the same telemetry information that it collects for monitoring. 
 
-MoonMon is not an EDR (Endpoint Detection and Response) or an Anti-Virus tool. Despite having features somewhat similar to EDRs, it is not and will never be a full-fledged comprehensive endpont detection and response tool.
+MoonMon is not an EDR (Endpoint Detection and Response) or an Anti-Virus tool. Despite having features somewhat similar to EDRs, it is not and will never be a full-fledged comprehensive endpoint detection and response tool.
 Commercial EDRs not only have more capabilities, they also have curated content and up-to-date threat intelligence which they use to protect endpoints. MoonMon on the otherhand does not detect or prevent threats, unless users craft specific rules to do so.
 
 Be sure to check out my [blog post](https://ag-michael.github.io/01.html) about MoonMon.
@@ -87,9 +87,9 @@ The table below lists features that are currently supported,implemented, planned
   - [ ] Performance benchmarking and tuning
   - [ ] Remote binary logging with mTLS
   - [ ] Yara scanning rules
-  - [ ] Hash measurement
+  - [X] Hash measurement
   - [ ] KAPC injection rules
-  - [ ] PE header enrichment
+  - [X] PE header enrichment
   - [ ] DNS logging
   - [ ] Explore and support additional WFP layers
   - [ ] Module blocking
