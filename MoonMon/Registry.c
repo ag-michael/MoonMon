@@ -175,7 +175,7 @@ NTSTATUS InspectRegistryEvent(_In_ PGC globals, _In_ PREG_INFO RI, _Out_ PBOOLEA
 		}
 			
 	}
-	else if (*skip_logging == FALSE && globals->REXC_COUNT > 0) {
+	if (*skip_logging == FALSE && globals->REXC_COUNT > 0 && (*match_id) == 0) {
 		if (RegistryEventListMatch(globals, RI, REGISTRY_EXCLUDE_LIST, globals->REXC_COUNT, &id, &actions) == TRUE) {
 			*skip_logging = TRUE;
 			if (*match_id == 0)

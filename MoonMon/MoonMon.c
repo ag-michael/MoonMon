@@ -241,7 +241,7 @@ void ProcessNotifyCallbackRoutine(_In_ PEPROCESS pProcess, _In_ HANDLE hPid, _In
                     ULONG match_id = 0;
                     NTSTATUS verdict = InspectProcessCreation(globals, PI, &skip_logging, &match_id);
                     pInfo->CreationStatus = verdict;
-                    // KdPrint(("match_id/verdict:%i/%#08x\n", match_id,verdict));
+                   // KdPrint(("match_id/verdict:%u/%#08x\n", match_id,verdict));
                     if (skip_logging == FALSE || globals->KEEP_EXCLUDES) {
                         // Make sure prior calles haven't corrupted PI somehow before 
                         // trying to use it to send information to user space

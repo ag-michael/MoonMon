@@ -1,0 +1,1121 @@
+---
+# auto-generated process block list
+process_block_list:
+  entries:
+  - action: accessdenied
+    id: 5101
+    name: Process image allow list for C:\WINDOWS\system32\svchost.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5102
+    name: Process image allow list for C:\WINDOWS\system32\taskhostw.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\taskhostw.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5103
+    name: Process image allow list for C:\WINDOWS\System32\SearchProtocolHost.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\System32\SearchProtocolHost.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\SearchIndexer.exe
+  - action: accessdenied
+    id: 5104
+    name: Process image allow list for C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe
+  - action: accessdenied
+    id: 5105
+    name: Process image allow list for C:\WINDOWS\System32\sdbinst.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\System32\sdbinst.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5106
+    name: Process image allow list for SystemRoot\System32\Conhost.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: SystemRoot\System32\Conhost.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\sc.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\System32\sdbinst.exe
+  - action: accessdenied
+    id: 5107
+    name: Process image allow list for C:\WINDOWS\System32\svchost.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\System32\svchost.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5108
+    name: Process image allow list for C:\WINDOWS\system32\usoclient.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\usoclient.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5109
+    name: Process image allow list for C:\WINDOWS\system32\sc.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\sc.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5110
+    name: Process image allow list for C:\WINDOWS\system32\wermgr.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\wermgr.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5111
+    name: Process image allow list for C:\WINDOWS\System32\wsqmcons.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\System32\wsqmcons.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5112
+    name: Process image allow list for C:\WINDOWS\system32\sihost.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\sihost.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5113
+    name: Process image allow list for C:\WINDOWS\system32\runonce.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\runonce.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5114
+    name: Process image allow list for C:\WINDOWS\system32\userinit.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\userinit.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\winlogon.exe
+  - action: accessdenied
+    id: 5115
+    name: Process image allow list for C:\WINDOWS\Explorer.EXE
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\Explorer.EXE
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\userinit.exe
+  - action: accessdenied
+    id: 5116
+    name: Process image allow list for C:\WINDOWS\system32\DllHost.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\DllHost.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5117
+    name: Process image allow list for C:\Windows\System32\ShellHost.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\Windows\System32\ShellHost.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\sihost.exe
+  - action: accessdenied
+    id: 5118
+    name: Process image allow list for C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\SearchHost.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\SearchHost.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5119
+    name: Process image allow list for C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5120
+    name: Process image allow list for C:\Windows\System32\RuntimeBroker.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\Windows\System32\RuntimeBroker.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5121
+    name: Process image allow list for C:\Program Files\WindowsApps\MicrosoftWindows.Client.WebExperience_424.1301.270.9_x64__cw5n1h2txyewy\Dashboard\Widgets.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\Program Files\WindowsApps\MicrosoftWindows.Client.WebExperience_424.1301.270.9_x64__cw5n1h2txyewy\Dashboard\Widgets.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5122
+    name: Process image allow list for C:\WINDOWS\system32\backgroundTaskHost.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\backgroundTaskHost.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5123
+    name: Process image allow list for C:\WINDOWS\system32\AUDIODG.EXE
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\AUDIODG.EXE
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\System32\svchost.exe
+  - action: accessdenied
+    id: 5124
+    name: Process image allow list for C:\WINDOWS\system32\sppsvc.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\sppsvc.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5125
+    name: Process image allow list for C:\WINDOWS\system32\SppExtComObj.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\SppExtComObj.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5126
+    name: Process image allow list for C:\WINDOWS\System32\SLUI.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\System32\SLUI.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\SppExtComObj.exe
+  - action: accessdenied
+    id: 5127
+    name: Process image allow list for C:\WINDOWS\system32\ctfmon.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\ctfmon.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\System32\svchost.exe
+  - action: accessdenied
+    id: 5128
+    name: Process image allow list for C:\WINDOWS\system32\BackgroundTaskHost.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\BackgroundTaskHost.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5129
+    name: Process image allow list for C:\WINDOWS\System32\rundll32.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\System32\rundll32.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5130
+    name: Process image allow list for C:\Windows\System32\smartscreen.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\Windows\System32\smartscreen.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5131
+    name: Process image allow list for C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2312.18.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2312.18.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5132
+    name: Process image allow list for C:\WINDOWS\system32\wlrmdr.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\wlrmdr.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\winlogon.exe
+  - action: accessdenied
+    id: 5133
+    name: Process image allow list for C:\Windows\System32\SecurityHealthSystray.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\Windows\System32\SecurityHealthSystray.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\Explorer.EXE
+  - action: accessdenied
+    id: 5134
+    name: Process image allow list for C:\WINDOWS\system32\SecurityHealthService.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\SecurityHealthService.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5135
+    name: Process image allow list for C:\WINDOWS\system32\wbem\wmiprvse.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\WINDOWS\system32\wbem\wmiprvse.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5136
+    name: Process image allow list for C:\Windows\System32\DataExchangeHost.exe
+    rules:
+    - condition: endswith
+      field: image_file_name
+      value: :\Windows\System32\DataExchangeHost.exe
+    - condition: notendswith
+      field: parent_image_file_name
+      value: :\WINDOWS\system32\svchost.exe
+  - action: accessdenied
+    id: 5137
+    name: Process command line allow list for C:\WINDOWS\system32\svchost.exe -k GPSvcGroup
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\svchost.exe -k GPSvcGroup
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5138
+    name: Process command line allow list for taskhostw.exe
+    rules:
+    - condition: endswith
+      field: command_line
+      value: taskhostw.exe
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s Schedule
+  - action: accessdenied
+    id: 5139
+    name: 'Process command line allow list for "C:\WINDOWS\System32\SearchProtocolHost.exe"
+      Global\UsGthrFltPipeMssGthrPipe2_ Global\UsGthrCtrlFltPipeMssGthrPipe2 1 -2147483646
+      "Software\Microsoft\Windows Search" "Mozilla/4.0 (compatible; MSIE 6.0; Windows
+      NT; MS Search 4.0 Robot)" "C:\ProgramData\Microsoft\Search\Data\Temp\usgthrsvc"
+      "DownLevelDaemon" '
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\System32\SearchProtocolHost.exe" Global\UsGthrFltPipeMssGthrPipe2_
+        Global\UsGthrCtrlFltPipeMssGthrPipe2 1 -2147483646 "Software\Microsoft\Windows
+        Search" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT; MS Search 4.0 Robot)"
+        "C:\ProgramData\Microsoft\Search\Data\Temp\usgthrsvc" "DownLevelDaemon" '
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\SearchIndexer.exe /Embedding
+  - action: accessdenied
+    id: 5140
+    name: Process command line allow list for "C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe"
+      /ua /installsource scheduler
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe"
+        /ua /installsource scheduler'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s Schedule
+  - action: accessdenied
+    id: 5141
+    name: Process command line allow list for C:\WINDOWS\system32\svchost.exe -k wsappx
+      -p -s AppXSvc
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\svchost.exe -k wsappx -p -s AppXSvc
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5142
+    name: Process command line allow list for C:\WINDOWS\System32\sdbinst.exe -m -bg
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\System32\sdbinst.exe -m -bg
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p -s
+        PcaSvc
+  - action: accessdenied
+    id: 5143
+    name: Process command line allow list for \??\C:\WINDOWS\system32\conhost.exe
+      0xffffffff -ForceV1
+    rules:
+    - condition: endswith
+      field: command_line
+      value: \??\:\WINDOWS\system32\conhost.exe 0xffffffff -ForceV1
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\System32\sdbinst.exe -m -bg
+    - condition: notendswith
+      field: parent_command_line
+      value: '":\WINDOWS\system32\sc.exe" start InventorySvc'
+  - action: accessdenied
+    id: 5144
+    name: Process command line allow list for "C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe"
+      /ua /installsource core
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe"
+        /ua /installsource core'
+    - condition: notendswith
+      field: parent_command_line
+      value: '":\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe"
+        /c'
+  - action: accessdenied
+    id: 5145
+    name: 'Process command line allow list for "C:\WINDOWS\System32\SearchProtocolHost.exe"
+      Global\UsGthrFltPipeMssGthrPipe3_ Global\UsGthrCtrlFltPipeMssGthrPipe3 1 -2147483646
+      "Software\Microsoft\Windows Search" "Mozilla/4.0 (compatible; MSIE 6.0; Windows
+      NT; MS Search 4.0 Robot)" "C:\ProgramData\Microsoft\Search\Data\Temp\usgthrsvc"
+      "DownLevelDaemon" '
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\System32\SearchProtocolHost.exe" Global\UsGthrFltPipeMssGthrPipe3_
+        Global\UsGthrCtrlFltPipeMssGthrPipe3 1 -2147483646 "Software\Microsoft\Windows
+        Search" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT; MS Search 4.0 Robot)"
+        "C:\ProgramData\Microsoft\Search\Data\Temp\usgthrsvc" "DownLevelDaemon" '
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\SearchIndexer.exe /Embedding
+  - action: accessdenied
+    id: 5146
+    name: Process command line allow list for "C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe"
+      /c
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe"
+        /c'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s Schedule
+  - action: accessdenied
+    id: 5147
+    name: Process command line allow list for C:\WINDOWS\system32\svchost.exe -k netsvcs
+      -p -s wlidsvc
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s wlidsvc
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5148
+    name: Process command line allow list for C:\WINDOWS\System32\svchost.exe -k wsappx
+      -p -s ClipSVC
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\System32\svchost.exe -k wsappx -p -s ClipSVC
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5149
+    name: Process command line allow list for "C:\WINDOWS\system32\usoclient.exe"
+      StartScan
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\system32\usoclient.exe" StartScan'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s Schedule
+  - action: accessdenied
+    id: 5150
+    name: Process command line allow list for "C:\WINDOWS\system32\sc.exe" start InventorySvc
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\system32\sc.exe" start InventorySvc'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s Schedule
+  - action: accessdenied
+    id: 5151
+    name: Process command line allow list for C:\WINDOWS\system32\svchost.exe -k InvSvcGroup
+      -p -s InventorySvc
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\svchost.exe -k InvSvcGroup -p -s InventorySvc
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5152
+    name: Process command line allow list for "C:\WINDOWS\system32\wermgr.exe" -upload
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\system32\wermgr.exe" -upload'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s Schedule
+  - action: accessdenied
+    id: 5153
+    name: Process command line allow list for "C:\WINDOWS\System32\wsqmcons.exe"
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\System32\wsqmcons.exe"'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s Schedule
+  - action: accessdenied
+    id: 5154
+    name: 'Process command line allow list for "C:\WINDOWS\System32\SearchProtocolHost.exe"
+      Global\UsGthrFltPipeMssGthrPipe4_ Global\UsGthrCtrlFltPipeMssGthrPipe4 1 -2147483646
+      "Software\Microsoft\Windows Search" "Mozilla/4.0 (compatible; MSIE 6.0; Windows
+      NT; MS Search 4.0 Robot)" "C:\ProgramData\Microsoft\Search\Data\Temp\usgthrsvc"
+      "DownLevelDaemon" '
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\System32\SearchProtocolHost.exe" Global\UsGthrFltPipeMssGthrPipe4_
+        Global\UsGthrCtrlFltPipeMssGthrPipe4 1 -2147483646 "Software\Microsoft\Windows
+        Search" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT; MS Search 4.0 Robot)"
+        "C:\ProgramData\Microsoft\Search\Data\Temp\usgthrsvc" "DownLevelDaemon" '
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\SearchIndexer.exe /Embedding
+  - action: accessdenied
+    id: 5155
+    name: Process command line allow list for C:\WINDOWS\System32\svchost.exe -k CameraMonitor
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\System32\svchost.exe -k CameraMonitor
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5156
+    name: Process command line allow list for C:\WINDOWS\System32\svchost.exe -k Camera
+      -s FrameServer
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\System32\svchost.exe -k Camera -s FrameServer
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5157
+    name: Process command line allow list for sihost.exe
+    rules:
+    - condition: endswith
+      field: command_line
+      value: sihost.exe
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s UserManager
+  - action: accessdenied
+    id: 5158
+    name: 'Process command line allow list for "C:\WINDOWS\System32\SearchProtocolHost.exe"
+      Global\UsGthrFltPipeMssGthrPipe5_ Global\UsGthrCtrlFltPipeMssGthrPipe5 1 -2147483646
+      "Software\Microsoft\Windows Search" "Mozilla/4.0 (compatible; MSIE 6.0; Windows
+      NT; MS Search 4.0 Robot)" "C:\ProgramData\Microsoft\Search\Data\Temp\usgthrsvc"
+      "DownLevelDaemon" '
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\System32\SearchProtocolHost.exe" Global\UsGthrFltPipeMssGthrPipe5_
+        Global\UsGthrCtrlFltPipeMssGthrPipe5 1 -2147483646 "Software\Microsoft\Windows
+        Search" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT; MS Search 4.0 Robot)"
+        "C:\ProgramData\Microsoft\Search\Data\Temp\usgthrsvc" "DownLevelDaemon" '
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\SearchIndexer.exe /Embedding
+  - action: accessdenied
+    id: 5159
+    name: Process command line allow list for C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup
+      -s CDPUserSvc
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\svchost.exe -k UnistackSvcGroup -s CDPUserSvc
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5160
+    name: Process command line allow list for C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted
+      -p -s webthreatdefusersvc
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p -s
+        webthreatdefusersvc
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5161
+    name: Process command line allow list for C:\WINDOWS\system32\svchost.exe -k netsvcs
+      -p -s Appinfo
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s Appinfo
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5162
+    name: Process command line allow list for C:\WINDOWS\system32\svchost.exe -k netsvcs
+      -p -s TokenBroker
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s TokenBroker
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5163
+    name: Process command line allow list for C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup
+      -s WpnUserService
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\svchost.exe -k UnistackSvcGroup -s WpnUserService
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5164
+    name: Process command line allow list for runonce.exe /Explorer
+    rules:
+    - condition: endswith
+      field: command_line
+      value: runonce.exe /Explorer
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s Appinfo
+  - action: accessdenied
+    id: 5165
+    name: Process command line allow list for taskhostw.exe {222A245B-E637-4AE9-A93F-A59CA119A75E}
+    rules:
+    - condition: endswith
+      field: command_line
+      value: taskhostw.exe {222A245B-E637-4AE9-A93F-A59CA119A75E}
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s Schedule
+  - action: accessdenied
+    id: 5166
+    name: Process command line allow list for taskhostw.exe logon
+    rules:
+    - condition: endswith
+      field: command_line
+      value: taskhostw.exe logon
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s Schedule
+  - action: accessdenied
+    id: 5167
+    name: Process command line allow list for C:\WINDOWS\system32\svchost.exe -k ClipboardSvcGroup
+      -p -s cbdhsvc
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\svchost.exe -k ClipboardSvcGroup -p -s cbdhsvc
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5168
+    name: Process command line allow list for C:\WINDOWS\system32\userinit.exe
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\userinit.exe
+    - condition: notendswith
+      field: parent_command_line
+      value: winlogon.exe
+  - action: accessdenied
+    id: 5169
+    name: Process command line allow list for C:\WINDOWS\Explorer.EXE
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\Explorer.EXE
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\userinit.exe
+  - action: accessdenied
+    id: 5170
+    name: Process command line allow list for C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted
+      -p -s DisplayEnhancementService
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p -s
+        DisplayEnhancementService
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5171
+    name: Process command line allow list for C:\WINDOWS\system32\DllHost.exe /Processid:{69B7FE84-6361-4423-B948-1D64820B1E96}
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\DllHost.exe /Processid:{69B7FE84-6361-4423-B948-1D64820B1E96}
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5172
+    name: Process command line allow list for "C:\Windows\System32\ShellHost.exe"
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\Windows\System32\ShellHost.exe"'
+    - condition: notendswith
+      field: parent_command_line
+      value: sihost.exe
+  - action: accessdenied
+    id: 5173
+    name: Process command line allow list for C:\WINDOWS\system32\DllHost.exe /Processid:{AB8902B4-09CA-4BB6-B78D-A8F59079A8D5}
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\DllHost.exe /Processid:{AB8902B4-09CA-4BB6-B78D-A8F59079A8D5}
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5174
+    name: Process command line allow list for "C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\SearchHost.exe"
+      -ServerName:CortanaUI.AppXstmwaab17q5s3y22tp6apqz7a45vwv65.mca
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\SearchHost.exe"
+        -ServerName:CortanaUI.AppXstmwaab17q5s3y22tp6apqz7a45vwv65.mca'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5175
+    name: Process command line allow list for "C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe"
+      -ServerName:App.AppXywbrabmsek0gm3tkwpr5kwzbs55tkqay.mca
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe"
+        -ServerName:App.AppXywbrabmsek0gm3tkwpr5kwzbs55tkqay.mca'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5176
+    name: Process command line allow list for C:\Windows\System32\RuntimeBroker.exe
+      -Embedding
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\Windows\System32\RuntimeBroker.exe -Embedding
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5177
+    name: Process command line allow list for "C:\Program Files\WindowsApps\MicrosoftWindows.Client.WebExperience_424.1301.270.9_x64__cw5n1h2txyewy\Dashboard\Widgets.exe"
+      -ServerName:Microsoft.Windows.DashboardServer
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\Program Files\WindowsApps\MicrosoftWindows.Client.WebExperience_424.1301.270.9_x64__cw5n1h2txyewy\Dashboard\Widgets.exe"
+        -ServerName:Microsoft.Windows.DashboardServer'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5178
+    name: Process command line allow list for C:\WINDOWS\system32\svchost.exe -k UdkSvcGroup
+      -s UdkUserSvc
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\svchost.exe -k UdkSvcGroup -s UdkUserSvc
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5179
+    name: Process command line allow list for C:\WINDOWS\system32\svchost.exe -k osprivacy
+      -p -s camsvc
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\svchost.exe -k osprivacy -p -s camsvc
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5180
+    name: Process command line allow list for C:\WINDOWS\system32\DllHost.exe /Processid:{7966B4D8-4FDC-4126-A10B-39A3209AD251}
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\DllHost.exe /Processid:{7966B4D8-4FDC-4126-A10B-39A3209AD251}
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5181
+    name: Process command line allow list for C:\WINDOWS\system32\DllHost.exe /Processid:{973D20D7-562D-44B9-B70B-5A0F49CCDF3F}
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\DllHost.exe /Processid:{973D20D7-562D-44B9-B70B-5A0F49CCDF3F}
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5182
+    name: Process command line allow list for "C:\WINDOWS\system32\backgroundTaskHost.exe"
+      -ServerName:SettingsUXHostApp.AppXbcemfss8fnwzwnsjec8qzh0c3jnkn6x0.mca
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\system32\backgroundTaskHost.exe" -ServerName:SettingsUXHostApp.AppXbcemfss8fnwzwnsjec8qzh0c3jnkn6x0.mca'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5183
+    name: Process command line allow list for C:\WINDOWS\system32\AUDIODG.EXE 0x00000000000003E0
+      0x00000000000003DC
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\AUDIODG.EXE 0x00000000000003E0 0x00000000000003DC
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - action: accessdenied
+    id: 5184
+    name: Process command line allow list for C:\WINDOWS\system32\sppsvc.exe
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\sppsvc.exe
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5185
+    name: Process command line allow list for C:\WINDOWS\system32\SppExtComObj.exe
+      -Embedding
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\SppExtComObj.exe -Embedding
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5186
+    name: Process command line allow list for "C:\WINDOWS\System32\SLUI.exe" RuleId=31e71c49-8da7-4a2f-ad92-45d98a1c79ba;Action=AutoActivate;AppId=55c92734-d682-4d71-983e-d6ec3f16059f;SkuId=2b1f36bb-c1cd-4306-bf5c-a0367c2d97d8;NotificationInterval=1440;Trigger=UserLogon;SessionId=1
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\System32\SLUI.exe" RuleId=31e71c49-8da7-4a2f-ad92-45d98a1c79ba;Action=AutoActivate;AppId=55c92734-d682-4d71-983e-d6ec3f16059f;SkuId=2b1f36bb-c1cd-4306-bf5c-a0367c2d97d8;NotificationInterval=1440;Trigger=UserLogon;SessionId=1'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\SppExtComObj.exe -Embedding
+  - action: accessdenied
+    id: 5187
+    name: 'Process command line allow list for /QuitInfo:0000000000000210;00000000000001FC; '
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '/QuitInfo:0000000000000210;00000000000001FC; '
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p -s
+        TextInputManagementService
+  - action: accessdenied
+    id: 5188
+    name: Process command line allow list for "C:\WINDOWS\system32\BackgroundTaskHost.exe"
+      -ServerName:BackgroundTaskHost.WebAccountProvider
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\system32\BackgroundTaskHost.exe" -ServerName:BackgroundTaskHost.WebAccountProvider'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5189
+    name: Process command line allow list for "C:\WINDOWS\system32\backgroundTaskHost.exe"
+      -ServerName:App.AppXmtcan0h2tfbfy7k9kn8hbxb6dmzz1zh0.mca
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\system32\backgroundTaskHost.exe" -ServerName:App.AppXmtcan0h2tfbfy7k9kn8hbxb6dmzz1zh0.mca'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5190
+    name: Process command line allow list for C:\WINDOWS\System32\rundll32.exe C:\WINDOWS\System32\shell32.dll,SHCreateLocalServerRunDll
+      {9aa46009-3ce0-458a-a354-715610a075e6} -Embedding
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\System32\rundll32.exe C:\WINDOWS\System32\shell32.dll,SHCreateLocalServerRunDll
+        {9aa46009-3ce0-458a-a354-715610a075e6} -Embedding
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5191
+    name: Process command line allow list for C:\Windows\System32\smartscreen.exe
+      -Embedding
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\Windows\System32\smartscreen.exe -Embedding
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5192
+    name: Process command line allow list for "C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2312.18.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe"
+      "C:\Windows\MoonMon\tests.log"
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2312.18.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe"
+        "C:\Windows\MoonMon\tests.log"'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s Appinfo
+  - action: accessdenied
+    id: 5193
+    name: Process command line allow list for  -c -s 0 -f 0 -t Empty -m Empty -a 0
+      -u Empty
+    rules:
+    - condition: endswith
+      field: command_line
+      value: ' -c -s 0 -f 0 -t Empty -m Empty -a 0 -u Empty'
+    - condition: notendswith
+      field: parent_command_line
+      value: winlogon.exe
+  - action: accessdenied
+    id: 5194
+    name: Process command line allow list for taskhostw.exe SyncFromCloud
+    rules:
+    - condition: endswith
+      field: command_line
+      value: taskhostw.exe SyncFromCloud
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k netsvcs -p -s Schedule
+  - action: accessdenied
+    id: 5195
+    name: 'Process command line allow list for "C:\Windows\System32\SecurityHealthSystray.exe" '
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\Windows\System32\SecurityHealthSystray.exe" '
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\Explorer.EXE
+  - action: accessdenied
+    id: 5196
+    name: Process command line allow list for C:\WINDOWS\system32\SecurityHealthService.exe
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\SecurityHealthService.exe
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5197
+    name: Process command line allow list for C:\WINDOWS\system32\wbem\wmiprvse.exe
+      -secured -Embedding
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\wbem\wmiprvse.exe -secured -Embedding
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5198
+    name: Process command line allow list for C:\Windows\System32\DataExchangeHost.exe
+      -Embedding
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\Windows\System32\DataExchangeHost.exe -Embedding
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5199
+    name: Process command line allow list for "C:\WINDOWS\system32\DllHost.exe" /Processid:{CA6CC9F1-867A-481E-951E-A28C5E4F01EA}
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\system32\DllHost.exe" /Processid:{CA6CC9F1-867A-481E-951E-A28C5E4F01EA}'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5200
+    name: Process command line allow list for "C:\WINDOWS\system32\DllHost.exe" /Processid:{E6950302-61F0-4FEB-97DB-855E30D4A991}
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\system32\DllHost.exe" /Processid:{E6950302-61F0-4FEB-97DB-855E30D4A991}'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - action: accessdenied
+    id: 5201
+    name: Process command line allow list for C:\WINDOWS\system32\svchost.exe -k LocalService
+      -p -s fdPHost
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\system32\svchost.exe -k LocalService -p -s fdPHost
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5202
+    name: Process command line allow list for C:\WINDOWS\System32\svchost.exe -k LocalServiceAndNoImpersonation
+      -p -s wcncsvc
+    rules:
+    - condition: endswith
+      field: command_line
+      value: :\WINDOWS\System32\svchost.exe -k LocalServiceAndNoImpersonation -p -s
+        wcncsvc
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\services.exe
+  - action: accessdenied
+    id: 5203
+    name: Process command line allow list for "C:\WINDOWS\system32\DllHost.exe" /Processid:{9F156763-7844-4DC4-B2B1-901F640F5155}
+    rules:
+    - condition: endswith
+      field: command_line
+      value: '":\WINDOWS\system32\DllHost.exe" /Processid:{9F156763-7844-4DC4-B2B1-901F640F5155}'
+    - condition: notendswith
+      field: parent_command_line
+      value: :\WINDOWS\system32\svchost.exe -k DcomLaunch -p

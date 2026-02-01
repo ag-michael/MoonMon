@@ -8,8 +8,14 @@ import (
 	"os"
 )
 
-func SHA256(filePath string) string {
+var HashCache [65535]string
+var HashCacheLookup = make(map[string]int)
+var writeIndex int
 
+func SHA256(filePath string) string {
+	if i, ok := HashCacheLookup[filePath]; ok {
+		return HashCache[i]
+	}
 	file, err := os.Open(filePath)
 	if err != nil {
 		log.Printf("[SHA256] Error opening file: %v", err)
@@ -25,5 +31,11 @@ func SHA256(filePath string) string {
 
 	hashInBytes := hasher.Sum(nil)
 	hashString := hex.EncodeToString(hashInBytes)
+	if writeIndex > 65535 {
+		writeIndex = 0
+	}
+	HashCacheLookup[filePath] = writeIndex
+	HashCache[writeIndex] = hashString
+	writeIndex++
 	return hashString
 }

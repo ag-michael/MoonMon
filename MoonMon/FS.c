@@ -355,7 +355,7 @@ NTSTATUS InspectFsSetEvent(_In_ PGC globals, _In_ PFILE_SET_INFO FI, _Out_ PBOOL
 		}
 		
 	}
-	else if (*skip_logging == FALSE && globals->FSEXC_COUNT > 0) {
+	if (*skip_logging == FALSE && globals->FSEXC_COUNT > 0 && (*match_id) == 0) {
 		if (FileSetEventListMatch(globals, FI, FILE_SET_INFO_EXCLUDE_LIST, globals->FSEXC_COUNT, &id, &actions) == TRUE) {
 			*skip_logging = TRUE;
 			*match_id = id;
@@ -405,7 +405,7 @@ NTSTATUS InspectFsCreateEvent(_In_ PGC globals, _In_ PFILE_INFO FI, _Out_ PBOOLE
 		}
 	}
 		
-	else if (*skip_logging == FALSE && globals->FCEXC_COUNT > 0) {
+	if (*skip_logging == FALSE && globals->FCEXC_COUNT > 0 && (*match_id) == 0) {
 		if (FileCreateEventListMatch(globals,FI, FILE_CREATE_EXCLUDE_LIST, globals->FCEXC_COUNT, &id, &actions) == TRUE) {
 			*skip_logging = TRUE;
 			*match_id = id;

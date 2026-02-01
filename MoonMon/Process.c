@@ -623,10 +623,11 @@ NTSTATUS InspectProcessCreation(_In_ PGC globals, _In_ PPROC_INFO PI, _Out_ PBOO
 		}
 	}
 	// Check the exclude list but only if the include list check didn't match
-	else if (*skip_logging == FALSE && globals->PEXC_COUNT > 0) {
+	if (*skip_logging == FALSE && globals->PEXC_COUNT > 0 && (*match_id) == 0) {
 		if (ProcessListMatch(globals, PI, PROCESS_EXCLUDE_LIST, globals->PEXC_COUNT, &id, &actions) == TRUE) {
 			*skip_logging = TRUE;
 			*match_id = id;
+		//	KdPrint(("\nProcess Exclusion match [%u]: %wZ \n", id, PI->ImageFileName));
 		}
 	}
 
@@ -656,7 +657,7 @@ void InspectProcessTermination(_In_ PGC globals, _In_ PPROC_INFO PI, _Out_ PBOOL
 		}
 		
 	}
-	else if (*skip_logging == FALSE && globals->PTEXC_COUNT > 0) {
+	if (*skip_logging == FALSE && globals->PTEXC_COUNT > 0 && (*match_id) == 0) {
 		if (ProcessListMatch(globals, PI, PROCESS_TERMINATED_EXCLUDE_LIST, globals->PTEXC_COUNT, &id, &actions) == TRUE) {
 			*skip_logging = TRUE;
 			*match_id = id;

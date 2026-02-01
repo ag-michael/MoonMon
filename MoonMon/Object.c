@@ -181,7 +181,7 @@ ULONG InspectObjectAccessEvent(_In_ PGC globals, _In_ POBPROC OB, _Out_ PBOOLEAN
 		}
 		
 	}
-	else if (*skip_logging == FALSE && globals->OEXC_COUNT > 0) {
+	if (*skip_logging == FALSE && globals->OEXC_COUNT > 0 && (*match_id) == 0) {
 		if (ObjectAccessListMatch(globals, OB, OBJECT_EXCLUDE_LIST, globals->OEXC_COUNT, &id, &actions) == TRUE) {
 			*skip_logging = TRUE;
 			*match_id = id;

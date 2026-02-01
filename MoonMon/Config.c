@@ -533,7 +533,7 @@ VOID loadGlobalSetting(PGC G, HANDLE keyHandle, PUNICODE_STRING valueName) {
                         if (regInfo->Data[0] == 1) {
                             G->KEEP_EXCLUDES = TRUE;
                         }
-                        KdPrint(("GlobalSetting:%i=%i\n", i, regInfo->Data[0]));
+                        KdPrint(("GlobalSetting:%ls=%i\n", validGlobalSettings[i], regInfo->Data[0]));
                     }
                     else {
                         KdPrint(("GlobalSetting:Invalid value at index:%i\n", i));

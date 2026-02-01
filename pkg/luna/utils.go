@@ -214,7 +214,7 @@ func ValidateFieldValue(field string, value string) bool {
 					log.Printf("Error: hex-uint32 field parsing error for '%v', field %v\n", value, field)
 					return false
 				}
-				if val >= 0x00000000 && val <= 0xffffffff {
+				if val <= 0xffffffff {
 					return true
 				}
 			} else if strings.Contains(valid, "-") {
@@ -245,7 +245,7 @@ func ValidateFieldValue(field string, value string) bool {
 					log.Printf("Error: uint32 field parsing error for '%v', field %v\n", value, field)
 					return false
 				}
-				if strings.EqualFold(valid, "uint32") && val >= 0x00000000 && val <= 0xffffffff {
+				if strings.EqualFold(valid, "uint32") && val <= 0xffffffff {
 					return true
 				} else {
 					_valid, err := strconv.ParseUint(value, 16, 32)
@@ -289,7 +289,7 @@ func ValidateFieldValue(field string, value string) bool {
 					return false
 				}
 
-				if strings.EqualFold(valid, "uint16") && val >= 0 && val <= 65535 {
+				if strings.EqualFold(valid, "uint16") && val <= 65535 {
 					return true
 				} else {
 					_valid, err := strconv.ParseUint(valid, 10, 16)

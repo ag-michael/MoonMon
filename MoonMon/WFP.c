@@ -795,7 +795,7 @@ void InspectNetworkEvent(_In_ PGC globals, _In_ PWFP_INFO NI,_In_ BOOLEAN little
 		}
 		
 	}
-	else if (*skip_logging == FALSE && globals->WEXC_COUNT > 0) {
+	if (*skip_logging == FALSE && globals->WEXC_COUNT > 0 && (*match_id) == 0) {
 		if (NetworkEventListMatch(globals, NI, littleEndian,WFP_EXCLUDE_LIST, globals->WEXC_COUNT, &id, &actions) == TRUE) {
 			*skip_logging = TRUE;
 			*match_id = id;

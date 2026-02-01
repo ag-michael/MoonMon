@@ -15,6 +15,7 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 	"unsafe"
 
@@ -23,6 +24,9 @@ import (
 	w "golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/svc"
 )
+
+var wg sync.WaitGroup
+var RawDataChannel chan RawData
 
 // this struct is used to track/collect
 // log data from moonmon (driver)
@@ -33,13 +37,32 @@ type kv struct {
 	value map[string]string
 }
 
+type RawData struct {
+	Data     *[]byte
+	byteSize uint32
+}
+
+func dataWorker() {
+	for {
+		select {
+		case work := <-RawDataChannel:
+			fmt.Printf("Processing data\n")
+			processData(work)
+		default:
+			continue
+		}
+	}
+}
+
 // Takes raw byte slice`data`  from the MoonMon driver and
 // processes up to `byteSize` bytes of slice.
 // If this function is being called it means some
 // output of the data is expected.
 // When monitoring isn't desired, this function shouldn't be called.
-func processData(data []byte, bytesSize uint32) {
-
+func processData(work RawData) {
+	defer wg.Done()
+	data := *work.Data
+	bytesSize := work.byteSize
 	bytesdone := uint32(0)
 
 	var size uint32
@@ -206,26 +229,41 @@ func Luna() {
 	}
 
 	defer w.CloseHandle(hDriver)
+	worker_count := runtime.NumCPU() - 1
+	if worker_count < 2 {
+		worker_count = 2
+	}
 	// pre-allocate a data buffer for processing logs
 	// this could easily be made dynamic (config-driven) if needed
 	// But this static 100MB value seems to work, although it adds to
 	// The memory footprint of the user-space agent.
-	data := make([]byte, 100000000)
+	var data [][]byte
+	for i := range worker_count {
+		if i < 5 {
+			data = append(data, make([]byte, 100000000))
+			wg.Add(1)
+			go dataWorker()
+		}
+	}
+	worker_count = len(data)
+	RawDataChannel = make(chan RawData, worker_count)
+	log.Printf("Started %d workers\n", worker_count)
 	var bytesRead uint32
 	ol := new(w.Overlapped)
+	worker := 0
 	for {
 		// To avoid burning cpu-cycles, sleep for a second between iterations
 		// So long as in that second, the buffer doesn't fill up, all is good.
 
-		time.Sleep(2000 * time.Millisecond)
-		err = w.ReadFile(w.Handle(hDriver), data, &bytesRead, ol)
+		time.Sleep(1000 * time.Millisecond)
+		err = w.ReadFile(w.Handle(hDriver), data[worker], &bytesRead, ol)
 		if err != nil {
 			continue
 		}
 
 		if bytesRead > 0 {
 			//   log.Println(string(data))
-			//log.Printf("Got %d bytes",bytesRead)
+			log.Printf("Got %d bytes", bytesRead)
 
 			// This could be made into a go routine.
 			// However, keeping it non-threaded seems to work great.
@@ -240,7 +278,17 @@ func Luna() {
 			// might span multiple reads from the kernel. This means multiple log entries with the same id
 			// are possible when the system is under intense stress and overloading buffers.
 			// But there shouldn't be (TM) any data loss.
-			processData(data, bytesRead)
+			//processData(data[worker], bytesRead)
+			RawDataChannel <- RawData{Data: &data[worker], byteSize: bytesRead}
+			if worker < worker_count-1 {
+				worker++
+			} else {
+				fmt.Printf("Waiting for workers\n")
+				wg.Wait()
+				worker = 0
+				wg.Add(worker_count)
+				fmt.Printf("Added %d workers\n", worker_count)
+			}
 		}
 	}
 
@@ -249,7 +297,7 @@ func Luna() {
 // Loads the config, sets up the windows services, runs them
 // and calls Luna() to start processing logs.
 func runLuna(service_name string) {
-	runtime.GOMAXPROCS(2) // capping it at 2 cpus max for now
+	//runtime.GOMAXPROCS(2) // capping it at 2 cpus max for now
 
 	// Load the config, using the service name to
 	// discover the config path among other things

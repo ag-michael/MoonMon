@@ -10,6 +10,10 @@ import (
 	peparser "github.com/saferwall/pe"
 )
 
+var PECache [65535]string
+var PECacheLookup = make(map[string]int)
+var PEwriteIndex int
+
 type PEData struct {
 	CompanyName      string           `json:"CompanyName,omitempty"`
 	FileDescription  string           `json:"FileDescription,omitempty"`
@@ -27,6 +31,9 @@ type PEData struct {
 }
 
 func PEEnrich(filePath string) string {
+	if i, ok := PECacheLookup[filePath]; ok {
+		return PECache[i]
+	}
 	f, err := fileversion.New(filePath)
 	if err != nil {
 		log.Printf("[PE] Error opening file for FileVersion enrichment:%v\n", err)
@@ -84,5 +91,9 @@ func PEEnrich(filePath string) string {
 		log.Printf("[PE] Error Marshaling PEData:%v", err)
 		return ""
 	}
-	return string(result)
+	PEResult := string(result)
+	PECacheLookup[filePath] = PEwriteIndex
+	PECache[writeIndex] = PEResult
+	PEwriteIndex++
+	return PEResult
 }
