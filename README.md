@@ -33,6 +33,7 @@ The table below lists features that are currently supported,implemented, planned
 | Log rotation   | :100:| Seems to work, lacks tests |
 | Install/Uninstall | :heavy_check_mark: | |
 | Remote binary logging with mTLS | :x: | |
+| Counter/Threshold actions | :bulb: | This would allow rules to count hits and act when a threshold is reached |
 | Process creation logging | :heavy_check_mark: | |
 | Process creation blocking | :heavy_check_mark: | |
 | Process termination logging | :heavy_check_mark: | |
